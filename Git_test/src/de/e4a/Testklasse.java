@@ -24,6 +24,61 @@ public class Testklasse {
 		int minimum = min(zahlen1);
 		System.out.println("Das Minimum ist:" + minimum);
 
+		// Personenanzahl ausgeben mit KlassenMethoden am 25.02.2014
+
+		Person p = new Person(23, "Tom");
+		Person b = new Person(10, "Alex");
+		System.out.println(Person.getZaehler());
+
+		Testklasse.fib();
+		for(int i = -1; i < 10; i++){
+			System.out.println(fibonacciIterativ(i));
+			
+		}
+		
+
+	}
+
+	// Fibonaccireihe Berechnen 25.02.2014
+
+	public static void fib() {
+		int[] fib = new int[50];
+		fib[0] = 1;
+		fib[1] = 1;
+
+		// Ausgabe:
+		for (int i = 2; i < fib.length; i++) {
+			fib[i] = fib[i - 1] + fib[i - 2]; // Vorgänger Minus Vor-Vorgänger
+			System.out.println(fib[i]);
+		}
+	}
+
+	public static int fibonacciIterativ(int n) {
+		if (n == 0 || n == 1) {
+			return 1;
+		}
+		if (n >= 2) {
+			int erg = 0;
+			int opa = 1;
+			int vater = 1;
+			for (int i = 2; i <= n; i++) {
+				erg = opa + vater;
+				opa = vater;
+				vater = erg;
+			}
+			return erg;
+		} else {
+			return -1; // Fehler
+		}
+
+	}
+
+	public static int fibrecursiv(int n) {
+		if (n == 0 || n == 1) {
+			return 1;
+		} else {
+			return fibrecursiv(n - 1) + fibrecursiv(n - 2);
+		}
 	}
 
 	public static int max(int[] i) {
